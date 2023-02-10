@@ -1,0 +1,19 @@
+<ul class='child-list'>
+  {{#each giftsList}}
+    <hr />
+    <li>
+      <label>
+        {{this.name}}
+        ({{this.quantity}}
+        p. )
+      </label>
+    </li>
+  {{/each}}
+</ul>
+
+<h2>Add a gift</h2>
+<form action='/gift' method='post'>
+  <label>Gift name <input type='text' name='name' /></label>
+  <label>Quantity <input type='number' name='quantity' /></label>
+  <button>Add</button>
+</form>

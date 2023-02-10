@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mountains of Christmas', cursive;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: url(../images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* h2 {
+  font-weight: 400;
+} */
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  padding: 10px;
+  width: 30%;
+  height: auto;
+  color: rgb(79, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 8px 5px 5px rgb(79, 0, 0);
+}
+
+ul {
+  list-style: none;
+}
+
+ul.child-list {
+  width: 100%;
+  text-align: center;
+}
+
+ul.menu {
+  display: flex;
+  flex-direction: row;
+}
+
+ul li {
+  width: 100%;
+  padding: 5px;
+}
+
+ul li a {
+  font-weight: bold;
+  color: rgb(79, 0, 0);
+  text-decoration: none;
+  transition: 0.5s all;
+}
+
+ul li a:after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: rgb(79, 0, 0);
+  margin: 0 auto;
+}
+
+ul li a:hover {
+  margin-left: 5%;
+}
+
+hr {
+  width: 100%;
+  background-color: rgb(184, 184, 184);
+  height: 1px;
+  border: 0;
+}
+
+button {
+  padding: 2px 5px;
+  background-color: rgb(79, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error h2 {
+  font-size: 1.75rem;
+}
