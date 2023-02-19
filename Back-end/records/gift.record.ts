@@ -11,7 +11,7 @@ export class GiftRecord implements GiftEntity {
   public name: string;
   public quantity: number;
 
-  constructor(obj: GiftRecord) {
+  constructor(obj: GiftEntity) {
     if (!obj.name || obj.name.length < 3 || obj.name.length > 55) {
       throw new ValidationError(
         'Gift name must be between 3 and 55 characters.'
@@ -65,7 +65,7 @@ export class GiftRecord implements GiftEntity {
 
   async countGivenGifts(): Promise<number> {
     const [[{ quantity }]] = (await pool.execute(
-      'SELECT COUNT(*) AS `count` FROM `children` WHERE `giftId` = :id',
+      'SELECT COUNT(*) AS `quantity` FROM `children` WHERE `giftId` = :id',
       {
         id: this.id,
       }

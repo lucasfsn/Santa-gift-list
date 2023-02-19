@@ -1,10 +1,21 @@
 import { Router } from 'express';
 import { GiftRecord } from '../records/gift.record';
+import { CreateGiftReq, GetSingleGiftRes } from '../types';
 import { ValidationError } from '../utils/errors';
 
 export const giftRouter = Router();
 
 giftRouter
+  .get('/:giftId', async (req, res) => {
+    const gift = await GiftRecord.getOne(req.params.giftId);
+
+    const givenCount = await gift.countGivenGifts();
+
+    res.json({
+      gift,
+      givenCount,
+    } as GetSingleGiftRes);
+  })
   .get('/', async (req, res) => {
     const giftsList = await GiftRecord.listAll();
 
@@ -28,10 +39,8 @@ giftRouter
     res.end();
   })
   .post('/', async (req, res) => {
-    const data = { ...req.body, quantity: Number(req.body.quantity) };
-
-    const newGift = new GiftRecord(data);
+    const newGift = new GiftRecord(req.body as CreateGiftReq);
     await newGift.insert();
 
-    res.redirect('/gift');
+    res.json(newGift);
   });
